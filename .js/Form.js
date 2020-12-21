@@ -1,6 +1,6 @@
 class Form{
     constructor(){
-
+        this.image = loadImage("bg1.jpg");
     }
 /*
     hideAP(){
@@ -25,19 +25,31 @@ class Form{
         class1.mousePressed(function(){
             class1.hide();
             class2.hide();
-                   var class3 = createButton('Art');
+            var class3 = createButton('Art');
             var class4 = createButton('Choir');
-            class3.position(displayWidth-60, displayHeight/2);
-            class4.position(displayWidth/3-10, displayHeight/2+40);
+            class3.position(displayWidth/3-10, displayHeight/2);
+            class4.position(2*displayWidth/3-10, displayHeight/2);
+            class3.mousePressed(function(){
+                class3.hide();
+                class4.hide();
+                var bg = createSprite(0,0,displayWidth, displayHeight);
+                console.log(bg);
+                bg.x = bg.width/2;
+                bg.addImage(this.image);
+                bg.velocityX = -4;
+                if(bg.x<0){
+                    bg.x = bg.width/2;
+                }
+            })
         })
         class2.mousePressed(function(){
             var class5 = createButton('Computer Science');
             var class6 = createButton('Jewelry');
-            class5.position(2*displayWidth/3-10, displayHeight/2+40);
-            class6.position(displayWidth-60, displayHeight/2+40);
+            class5.position(displayWidth/3-10, displayHeight/2);
+            class6.position(2*displayWidth/3-10, displayHeight/2);
         })
         class3.mousePressed(function(){
-            
+
         })
     }
 }
